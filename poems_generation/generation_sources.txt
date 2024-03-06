@@ -1,0 +1,25 @@
+sources used for poem generation:
+
+1 hix.ai poem generator based on GPT-3.5; link: https://hix.ai/ru/ai-writer/poem-generator; prompt: 'Напиши стихотворение на русском языке';
+2 hix.ai chat based on GPT-3.5; link: https://hix.ai/app/chat; prompt: 'Напиши стихотворение на русском языке';
+2.1 hix.ai chat based on GPT-3.5; link: https://hix.ai/app/chat; prompt: 'Напиши большое красивое стихотворение на русском языке';
+3 chatgpt_tgm_bot based on GPT-3; link: https://t.me/chatgpt_tgm_bot; prompt: 'Напиши стихотворение на русском языке';
+3.1 chatgpt_tgm_bot based on GPT-3; link: https://t.me/chatgpt_tgm_bot; prompt: 'Напиши большое красивое стихотворение на русском языке';
+3.2 chatgpt_tgm_bot based on GPT-3; link: https://t.me/chatgpt_tgm_bot; prompt: 'Ты великий русский писатель! Сочини большое красивое стихотворение на русском языке. Постарайся добавить в него побольше средств художественной выразительности'
+4.1 rugptlarge; link: https://huggingface.co/ai-forever/rugpt2large; prompt: 'Октябрь уж наступил — уж роща отряхает\nПоследние листы с нагих своих ветвей.'
+4.2 rugptlarge; link: https://huggingface.co/ai-forever/rugpt2large; prompt: 'Тот, кто любит цветы,\nТот, естественно, пулям не нравится.'
+4.3 rugptlarge; link: https://huggingface.co/ai-forever/rugpt2large; prompt: 'Я помню чудное мгновенье:\nПередо мной явилась ты,'
+4.4 rugptlarge; link: https://huggingface.co/ai-forever/rugpt2large; prompt: 'Я вас любил: любовь еще, быть может,\nВ душе моей угасла не совсем,'
+4.5 rugptlarge; link: https://huggingface.co/ai-forever/rugpt2large; prompt: 'Печально я гляжу на наше поколенье!\nЕго грядущее — иль пусто, иль темно,'
+4.6 rugptlarge; link: https://huggingface.co/ai-forever/rugpt2large; prompt: 'Ты меня не любишь, не жалеешь,\nРазве я немного не красив?'
+4.7 rugptlarge; link: https://huggingface.co/ai-forever/rugpt2large; prompt: 'Потонула деревня в ухабинах,\nЗаслонили избенки леса.'
+4.8 rugptlarge; link: https://huggingface.co/ai-forever/rugpt2large; prompt: 'Жил-был поп,\nТолоконный лоб.'
+4.9 rugptlarge; link: https://huggingface.co/ai-forever/rugpt2large; prompt: 'Продолговатый и твердый овал,\nЧерного платья раструбы…'
+4.10 rugptlarge; link: https://huggingface.co/ai-forever/rugpt2large; prompt: 'Я памятник себе воздвиг чудесный, вечный,\nМеталлов тверже он и выше пирамид;'
+5.1 vit-rugpt3-large-poetry-ft; link: https://huggingface.co/AnyaSchen/vit-rugpt3-large-poetry-ft; prompt: 'https://anandaindia.org/wp-content/uploads/2018/12/happy-man.jpg'; mode: 'Пушкин'
+5.2 vit-rugpt3-large-poetry-ft; link: https://huggingface.co/AnyaSchen/vit-rugpt3-large-poetry-ft; prompt: 'https://anandaindia.org/wp-content/uploads/2018/12/happy-man.jpg'; mode: 'Есенин'
+5.3 vit-rugpt3-large-poetry-ft; link: https://huggingface.co/AnyaSchen/vit-rugpt3-large-poetry-ft; prompt: 'https://www.mentoday.ru/upload/img_cache/a83/a83e6e1aadcf2c5ee270132f7553cf28_ce_1500x1000x0x0_cropped_666x444.jpg'; mode: 'Пушкин'
+5.4 vit-rugpt3-large-poetry-ft; link: https://huggingface.co/AnyaSchen/vit-rugpt3-large-poetry-ft; prompt: 'https://www.mentoday.ru/upload/img_cache/a83/a83e6e1aadcf2c5ee270132f7553cf28_ce_1500x1000x0x0_cropped_666x444.jpg'; mode: 'Есенин'
+5.5 vit-rugpt3-large-poetry-ft; link: https://huggingface.co/AnyaSchen/vit-rugpt3-large-poetry-ft; prompt: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDiVYBOgBZcfd5c8eyar-fZAXnUuL6RVbTimPzB_9Few&s'; mode: 'Пушкин'
+5.6 vit-rugpt3-large-poetry-ft; link: https://huggingface.co/AnyaSchen/vit-rugpt3-large-poetry-ft; prompt: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDiVYBOgBZcfd5c8eyar-fZAXnUuL6RVbTimPzB_9Few&s'; mode: 'Есенин'
+6 maxtext; link: https://maxtext.ru/; prompt: 'Напиши стихотворение'
