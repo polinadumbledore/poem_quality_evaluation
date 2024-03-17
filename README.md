@@ -6,15 +6,15 @@ The network takes a poem and evaluates it by several parameters: rhyme, rhythm, 
 
 ## The parameters
 #### rhyme
-
+*some description* (automatically)
 #### rhythm
-
+*some description* (automatically)
 #### novelty
-a poem is compared to the corpora to check its uniqueness, originality
+a poem is compared to the corpora to check its uniqueness, originality (automatically)
 #### repetition
-checks if there is variation between lines within a poem
+checks if there is variation between lines within a poem (automatically)
 #### meaningfulness
-0 - poem makes no sense, 1 - less than half of a poem makes sense, 2 - more than half of a poem makes sense, 3 - there are no mistakes considering sense
+3 - there are no mistakes considering sense, 2 - more than half of a poem makes sense, 1 - less than half of a poem makes sense, 0 - poem makes no sense
 #### emotionality
 1 - emotional, 0 - not emotional
 #### grammaticality
