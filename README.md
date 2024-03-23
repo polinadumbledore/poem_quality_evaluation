@@ -16,6 +16,7 @@ The system takes a poem and evaluates it by several parameters: rhythm, novelty,
   + checked quality of the labeling
   + resolved conflicts
 + Experiments with model
++ Evaluating different poem generators
 
 ## Parameters
 + **rhythm**: we calculate length of each line, count number of unique line lengths and divide it by number of lines (automatically [*reference*])
@@ -29,9 +30,12 @@ The corpora is divided into two halves. Each half is labeled by two people indep
 - Cronbach's alpha for the first pair of labellers == 0.9307134059623864
 - Cronbach's alpha for the second pair of labellers == 0.9966737810000899
 
-After that for meaningfulness we take minor value (if the difference between labels == 1) or mean (if the difference between labels == 2). For emotionality and grammaticality we just take the minor option.
+After that we took the minor option, if there labellers scored a pom differently, though mostly we managed to be quite cohesive.
 
-Just as it was expected, emotionality is quite subjective, though the Cronbach's alpha is still bigger than 0.5. As for meaningfulness and grammar, the value is very close to 1. 
+## Training the model
+
+
+## Evaluating different poem generators
 
 ## References
 [1] *Manex Agirrezabal, Hugo Gonçalo Oliveira, Aitor Ormazabal.* Erato: Automatizing Poetry Evaluation. (2023)
