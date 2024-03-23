@@ -19,7 +19,7 @@ The system takes a poem and evaluates it by several parameters: rhythm, novelty,
 + Evaluating different poem generators
 
 ## Parameters
-+ **rhythm**: we calculate length of each line, count number of unique line lengths and divide it by number of lines (automatically [*reference*])
++ **rhythm**: we calculate length of each line, count number of unique line lengths and divide it by number of lines (automatically [rhythm](https://github.com/polinadumbledore/poem_quality_evaluation/blob/main/rhythm.ipynb))
 + **novelty**: n-gramms of a poem are compared to n-gramms of other poems to evaluate poem's uniqueness, originality (automatically [novelty & repetition](https://github.com/polinadumbledore/poem_quality_evaluation/blob/main/novelty_and_repetition.ipynb))
 + **repetition**: n-gramms of a poem are compared to each other within the poem to check if there is variation between lines (automatically [novelty & repetition](https://github.com/polinadumbledore/poem_quality_evaluation/blob/main/novelty_and_repetition.ipynb))
 + **meaningfulness**: 1 - more than half of a poem makes sense, 0 - less than half of a poem makes sense
