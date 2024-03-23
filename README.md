@@ -26,11 +26,8 @@ The system takes a poem and evaluates it by several parameters: rhythm, novelty,
 + **grammaticality**: 1 - everything is correct, 0 - there is at least one mistake
 ### Algorithm for manual labeling:
 The corpora is divided into two halves. Each half is labeled by two people independetnly and the results are compared. Before resolving conflcits we measured Cronbach's alpha:
-- Cronbach's alpha for the first pair of labellers == 0.9998014298980925
-- Cronbach's alpha for the second pair of labellers == 0.9996156808851054
-- Cronbach's alpha for meaningfulness == 0.9975645126905592
-- Cronbach's alpha for emotionality == 0.5825704412546517
-- Cronbach's alpha for grammar == 0.9708282257107834
+- Cronbach's alpha for the first pair of labellers == 0.9307134059623864
+- Cronbach's alpha for the second pair of labellers == 0.9966737810000899
 
 After that for meaningfulness we take minor value (if the difference between labels == 1) or mean (if the difference between labels == 2). For emotionality and grammaticality we just take the minor option.
 
