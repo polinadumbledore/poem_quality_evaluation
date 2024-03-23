@@ -21,7 +21,7 @@ The system takes a poem and evaluates it by several parameters: rhythm, novelty,
 + **rhythm**: we calculate length of each line, count number of unique line lengths and divide it by number of lines (automatically [*reference*])
 + **novelty**: n-gramms of a poem are compared to n-gramms of other poems to evaluate poem's uniqueness, originality (automatically [novelty & repetition](https://github.com/polinadumbledore/poem_quality_evaluation/blob/main/novelty_and_repetition.ipynb))
 + **repetition**: n-gramms of a poem are compared to each other within the poem to check if there is variation between lines (automatically [novelty & repetition](https://github.com/polinadumbledore/poem_quality_evaluation/blob/main/novelty_and_repetition.ipynb))
-+ **meaningfulness**: 3 - there are no mistakes considering sense, 2 - more than half of a poem makes sense, 1 - less than half of a poem makes sense, 0 - poem makes no sense
++ **meaningfulness**: 1 - more than half of a poem makes sense, 0 - less than half of a poem makes sense
 + **emotionality**: 1 - emotional, 0 - not emotional
 + **grammaticality**: 1 - everything is correct, 0 - there is at least one mistake
 ### Algorithm for manual labeling:
