@@ -1,38 +1,51 @@
 # Poem Quality Evaluation
 ## Main idea
-The system takes a poem and evaluates it by several parameters: rhythm, novelty, repetition, meaningfulness, emotionality, grammar
+The system takes a poem and evaluates it by several parameters: rhythm, novelty, repetition, meaningfulness, emotionality, grammar. The project consists of several scripts: the first one counts repetition and novelty (Counting novelty is only possible if a poem is a part of a corpus. The script counts novelty of the poem compared to other poems in the corpus), the second one counts rythm and the last one is a model that is trained on Bert to classify the poem based on three labels: meaningfulness, emotionality, grammar.
 
 ## Process
-+ Collecting dataset (real poems + generated poems)
-  + parsed 1800+ poems from [rustih.ru](https://rustih.ru/) and [tipoet.com](https://tipoet.com/)
-  + generated 170+ poems via different [sources](https://github.com/polinadumbledore/poem_quality_evaluation/blob/main/poems_generation/generation_sources.txt)
++ Collecting the dataset (real poems + generated poems)
+  + Parsed 1800+ poems from [rustih.ru](https://rustih.ru/) and [tipoet.com](https://tipoet.com/);
+  + Generated 170+ poems via different [sources](https://github.com/polinadumbledore/poem_quality_evaluation/blob/main/poems_generation/generation_sources.txt);
 + Automatic labeling
-  + looked through variants of labeling algorithms, chose the best practices
-  + adapted scripts to our needs
+  + Looked through variants of labeling algorithms, chose the best practices;
+  + Adapted the scripts to our needs;
 + Manual labeling
-  + thought through labeling rules
-  + did test-labeling, discussed the results
-  + labeled the whole corpora
-  + checked quality of the labeling
-  + resolved conflicts
-+ Experiments with model
-+ Evaluating different poem generators
+  + Thought through labeling rules;
+  + Did test-labeling, discussed the results;
+  + Labeled the whole corpora;
+  + Checked quality of the labeling;
+  + Resolved conflicts;
++ Training the model
+  + Tested several different models and chose the best one;
+  + Performed expirements on the results;
++ Evaluating different poem generators.
 
 ## Parameters
-+ **rhythm**: we calculate length of each line, count number of unique line lengths and divide it by number of lines (automatically [rhythm](https://github.com/polinadumbledore/poem_quality_evaluation/blob/main/rhythm.ipynb))
-+ **novelty**: n-gramms of a poem are compared to n-gramms of other poems to evaluate poem's uniqueness, originality (automatically [novelty & repetition](https://github.com/polinadumbledore/poem_quality_evaluation/blob/main/novelty_and_repetition.ipynb))
-+ **repetition**: n-gramms of a poem are compared to each other within the poem to check if there is variation between lines (automatically [novelty & repetition](https://github.com/polinadumbledore/poem_quality_evaluation/blob/main/novelty_and_repetition.ipynb))
-+ **meaningfulness**: 1 - more than half of a poem makes sense, 0 - less than half of a poem makes sense
-+ **emotionality**: 1 - emotional, 0 - not emotional
-+ **grammaticality**: 1 - everything is correct, 0 - there is at least one mistake
++ **Rhythm**: We calculate length of each line, count number of unique line lengths and divide it by number of lines (automatically [rhythm](https://github.com/polinadumbledore/poem_quality_evaluation/blob/main/rhythm.ipynb))
++ **Novelty**: N-gramms of a poem are compared to n-gramms of other poems to evaluate poem's uniqueness, originality (automatically [novelty & repetition](https://github.com/polinadumbledore/poem_quality_evaluation/blob/main/novelty_and_repetition.ipynb))
++ **Repetition**: N-gramms of a poem are compared to each other within the poem to check if there is variation between lines (automatically [novelty & repetition](https://github.com/polinadumbledore/poem_quality_evaluation/blob/main/novelty_and_repetition.ipynb))
++ **Meaningfulness**: 1 - more than half of a poem makes sense, 0 - less than half of a poem makes sense
++ **Emotionality**: 1 - emotional, 0 - not emotional
++ **Grammaticality**: 1 - everything is correct, 0 - there is at least one mistake
 ### Algorithm for manual labeling:
 The corpora is divided into two halves. Each half is labeled by two people independetnly and the results are compared. Before resolving conflcits we measured Cronbach's alpha:
 - Cronbach's alpha for the first pair of labellers == 0.9307134059623864
 - Cronbach's alpha for the second pair of labellers == 0.9966737810000899
 
-After that we took the minor option, if there labellers scored a pom differently, though mostly we managed to be quite cohesive.
+After that we took the minor option, if there labellers scored a poem differently, though mostly we managed to be quite cohesive.
 
 ## Training the model
+
+We trained several different model to decide which performed the best. 
+
+| model | F1 score | Accuracy |
+|------------|-------------|-------------|
+| [rubert-base-cased with lemmatization](https://huggingface.co/DeepPavlov/rubert-base-cased) | 0.79 | 0.68 |
+| [rubert-base-cased without lemmatization](https://huggingface.co/DeepPavlov/rubert-base-cased) | 0.8 | 0.69 |
+| [xlm-roberta-base with lemmatization](https://huggingface.co/FacebookAI/xlm-roberta-base) | 0.8 | 0.67 |
+| [xlm-roberta-base without lemmatization](https://huggingface.co/FacebookAI/xlm-roberta-base) | 0.8 | 0.67 |
+| [rubert-tiny with lemmatization](https://huggingface.co/cointegrated/rubert-tiny2) | 0.8 | 0.68 |
+| [rubert-tiny without lemmatization](https://huggingface.co/cointegrated/rubert-tiny2) | 0.8 | 0.67 |
 
 
 ## Evaluating different poem generators
