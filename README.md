@@ -1,45 +1,44 @@
 # Poem Quality Evaluation
-## Main idea
-The system takes a poem and evaluates it by several parameters: rhythm, novelty, repetition, meaningfulness, emotionality, grammar. The project consists of several scripts: the first one counts repetition and novelty (Counting novelty is only possible if a poem is a part of a corpus. The script counts novelty of the poem compared to other poems in the corpus), the second one counts rythm and the last one is a model that is trained on Bert to classify the poem based on three labels: meaningfulness, emotionality, grammar.
+
+## Main Idea
+The system evaluates poems based on several parameters: rhythm, novelty, repetition, meaningfulness, emotionality, and grammar. The project comprises several scripts: the first one counts repetition and novelty (counting novelty is only possible if a poem is part of a corpus; the script evaluates novelty by comparing the poem to others in the corpus), the second one evaluates rhythm, and the last one is a model trained on BERT to classify the poem based on three labels: meaningfulness, emotionality, and grammar.
 
 ## Process
-+ Collecting the dataset (real poems + generated poems)
-  + Parsed 1800+ poems from [rustih.ru](https://rustih.ru/) and [tipoet.com](https://tipoet.com/);
-  + Generated 170+ poems via different [sources](https://github.com/polinadumbledore/poem_quality_evaluation/blob/main/poems_generation/generation_sources.txt);
-+ Automatic labeling
-  + Looked through variants of labeling algorithms, chose the best practices;
-  + Adapted the scripts to our needs;
-+ Manual labeling
-  + Thought through labeling rules;
-  + Did test-labeling, discussed the results;
-  + Labeled the whole corpora;
-  + Checked quality of the labeling;
-  + Resolved conflicts;
-+ Training the model
-  + Tested several different models and chose the best one;
-  + Performed expirements on the results;
-+ Evaluating different poem generators.
+- **Collecting the Dataset (Real Poems + Generated Poems)**
+  - Parsed over 1800 poems from [rustih.ru](https://rustih.ru/) and [tipoet.com](https://tipoet.com/).
+  - Generated over 170 poems from various [sources](https://github.com/polinadumbledore/poem_quality_evaluation/blob/main/poems_generation/generation_sources.txt).
+- **Automatic Labeling**
+  - Explored various labeling algorithms and adopted best practices.
+  - Customized scripts to suit our requirements.
+- **Manual Labeling**
+  - Defined labeling rules.
+  - Conducted test-labeling and discussed the results.
+  - Labeled the entire corpus.
+  - Assessed the quality of labeling and resolved conflicts.
+- **Training the Model**
+  - Tested several models and selected the best one.
+  - Conducted experiments on the results.
+- **Evaluating Different Poem Generators**
 
 ## Parameters
-+ **Rhythm**: We calculate length of each line, count number of unique line lengths and divide it by number of lines (automatically [rhythm](https://github.com/polinadumbledore/poem_quality_evaluation/blob/main/rhythm.ipynb))
-+ **Novelty**: N-gramms of a poem are compared to n-gramms of other poems to evaluate poem's uniqueness, originality (automatically [novelty & repetition](https://github.com/polinadumbledore/poem_quality_evaluation/blob/main/novelty_and_repetition.ipynb))
-+ **Repetition**: N-gramms of a poem are compared to each other within the poem to check if there is variation between lines (automatically [novelty & repetition](https://github.com/polinadumbledore/poem_quality_evaluation/blob/main/novelty_and_repetition.ipynb))
-+ **Meaningfulness**: 1 - more than half of a poem makes sense, 0 - less than half of a poem makes sense
-+ **Emotionality**: 1 - emotional, 0 - not emotional
-+ **Grammaticality**: 1 - everything is correct, 0 - there is at least one mistake
-### Algorithm for manual labeling:
-The corpora is divided into two halves. Each half is labeled by two people independetnly and the results are compared. Before resolving conflcits we measured Cronbach's alpha:
-- Cronbach's alpha for the first pair of labellers == 0.9307134059623864
-- Cronbach's alpha for the second pair of labellers == 0.9966737810000899
+- **Rhythm:** Calculated by determining the length of each line, counting the number of unique line lengths, and dividing by the total number of lines (automatically evaluated using [rhythm](https://github.com/polinadumbledore/poem_quality_evaluation/blob/main/rhythm.ipynb)).
+- **Novelty:** Evaluated by comparing N-grams of a poem with N-grams of other poems to assess its uniqueness and originality (automatically assessed using [novelty & repetition](https://github.com/polinadumbledore/poem_quality_evaluation/blob/main/novelty_and_repetition.ipynb)).
+- **Repetition:** Examined by comparing N-grams of a poem within itself to identify variation between lines (automatically assessed using [novelty & repetition](https://github.com/polinadumbledore/poem_quality_evaluation/blob/main/novelty_and_repetition.ipynb)).
+- **Meaningfulness:** Scored based on whether more than half of the poem makes sense (1) or not (0).
+- **Emotionality:** Rated as emotional (1) or not emotional (0).
+- **Grammaticality:** Scored as correct (1) or containing at least one mistake (0).
 
-After that we took the minor option, if there labellers scored a poem differently, though mostly we managed to be quite cohesive.
+### Algorithm for Manual Labeling
+The corpus is divided into two halves, each labeled independently by two individuals. Before resolving conflicts, Cronbach's alpha was measured:
+- Cronbach's alpha for the first pair of labelers: 0.9307134059623864
+- Cronbach's alpha for the second pair of labelers: 0.9966737810000899
+Conflicts were resolved by taking the majority vote, although consensus was largely achieved.
 
-## Training the model
+## Training the Model
+Several models were trained to determine the best performer. Training parameters included a learning rate of 2e-5, 2 epochs comprising 9 batches, and a weight decay of 0.01. The threshold for the classes was set at 0.5.
 
-We trained several different model to decide which performed the best. Parameters for the training: learning rate of 2e-5, 2 epochs consisting of 9 batches, weight_decay of 0.01. The threshold for the classes was 0.5
-
-| model | F1 score | Accuracy |
-|------------|-------------|-------------|
+| Model | F1 Score | Accuracy |
+|-------|----------|----------|
 | [rubert-base-cased with lemmatization](https://huggingface.co/DeepPavlov/rubert-base-cased) | 0.79 | 0.68 |
 | [rubert-base-cased without lemmatization](https://huggingface.co/DeepPavlov/rubert-base-cased) | 0.8 | 0.69 |
 | [xlm-roberta-base with lemmatization](https://huggingface.co/FacebookAI/xlm-roberta-base) | 0.8 | 0.67 |
@@ -47,36 +46,36 @@ We trained several different model to decide which performed the best. Parameter
 | [rubert-tiny with lemmatization](https://huggingface.co/cointegrated/rubert-tiny2) | 0.8 | 0.68 |
 | [rubert-tiny without lemmatization](https://huggingface.co/cointegrated/rubert-tiny2) | 0.8 | 0.67 |
 
-In this table, we rounded the numbers. In reality, there is a small difference between, for example, rubert-tiny with and without lemmatization nd so on. In the end, we chose rubert-base-cased from DeepPavlov without lemmatization as it performed slightly better. 
+The differences between models are minor. Ultimately, rubert-base-cased from DeepPavlov without lemmatization was chosen for its slightly superior performance.
 
-After consideration, we tested the threshold of the best model to see which is better. 
+The threshold of the best model was tested to determine the optimal value:
 
-| threshold | F1 score | Accuracy |
-|------------|-------------|-------------|
+| Threshold | F1 Score | Accuracy |
+|-----------|----------|----------|
 | 0.5 | 0.8 | 0.69 |
 | 0.6 | 0.79 | 0.7 |
 | 0.7 | 0.69 | 0.62 |
 
-We settled on the threshold of 0.6. 
+A threshold of 0.6 was selected.
 
-We also wanted to see which class prediction had the best accuracy (in other words: which is easier to predict: meaningfulness, grammar or emotionality?)
+The accuracy of predicting each class was also assessed:
 
-| class | F1 score | Accuracy |
-|------------|-------------|-------------|
-| meaningfulness | 0.75 | 0.65 |
-| grammar | 0.81 | 0.73 |
-| emotionality | 0.661 | 0.59 |
+| Class | F1 Score | Accuracy |
+|-------|----------|----------|
+| Meaningfulness | 0.75 | 0.65 |
+| Grammar | 0.81 | 0.73 |
+| Emotionality | 0.661 | 0.59 |
 
-As we expected, grammar was the easiest class to predict. On the contrary, emotionality has the lowest accuracy and F1 score. 
+As expected, grammar was the easiest class to predict, while emotionality had the lowest accuracy and F1 score.
 
-## Evaluating different poem generators
-Having prepared our model we evaluated different generative models. To calculate a model's score we took 30 poems generated by it, evaluated those, counted mean value for each parameter and finally counted mean value of all the parameters:
+## Evaluating Different Poem Generators
+Using our model, we evaluated different generative models. The score for each model was calculated by evaluating 30 poems generated by it, computing the mean value for each parameter, and then averaging all parameters:
 
-| model      | score       |
-|------------|-------------|
-| maxtext    | 1.714286    |
-| gigachat   | 2.000000    |
-| gpt-3.5    | 2.285714    |
+| Model | Score |
+|-------|-------|
+| maxtext | 1.714286 |
+| gigachat | 2.000000 |
+| gpt-3.5 | 2.285714 |
 
 ## References
-[1] *Manex Agirrezabal, Hugo Gonçalo Oliveira, Aitor Ormazabal.* Erato: Automatizing Poetry Evaluation. (2023)
+[1] Manex Agirrezabal, Hugo Gonçalo Oliveira, Aitor Ormazabal. "Erato: Automatizing Poetry Evaluation." (2023)
