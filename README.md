@@ -4,7 +4,7 @@ The system takes a poem and evaluates it by several parameters: rhythm, novelty,
 
 ## Process
 + Collecting dataset (real poems + generated poems)
-  + parsed 1800+ poems from [stihi.ru](https://stihi.ru/)
+  + parsed 1800+ poems from [rustih.ru](https://rustih.ru/) and [tipoet.com](https://tipoet.com/)
   + generated 170+ poems via different [sources](https://github.com/polinadumbledore/poem_quality_evaluation/blob/main/poems_generation/generation_sources.txt)
 + Automatic labeling code preparation
   + looked through variants of labeling algorithms, chose the best practices
