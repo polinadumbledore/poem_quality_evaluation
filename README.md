@@ -102,5 +102,7 @@ Using our model, we evaluated different generative models. The score for each mo
 
 ## References
 [1] M. Agirrezabal, H. G. Oliveira, A. Ormazabal. Erato: Automatizing Poetry Evaluation. 
+
 [2] M. Elzohbi, R. Zhao. Creative Data Generation: A Review Focusing on Text and Poetry. 
+
 [3] Automatic Generation and Evaluation of Chinese Classical Poetry with Attention-Based Deep Neural Network. 
