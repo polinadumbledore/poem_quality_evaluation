@@ -4,9 +4,9 @@
 The system evaluates poems based on several parameters: rhythm, novelty, repetition, meaningfulness, emotionality, and grammar. The project comprises several scripts: the first one counts repetition and novelty (counting novelty is only possible if a poem is part of a corpus; the script evaluates novelty by comparing the poem to others in the corpus), the second one evaluates rhythm, and the last one is a model trained on BERT to classify the poem based on three labels: meaningfulness, emotionality, and grammar.
 
 ## File navigation
-* [poems_generation](https://github.com/polinadumbledore/poem_quality_evaluation/blob/main/poems_generation)
+* [poems_generation](https://github.com/polinadumbledore/poem_quality_evaluation/blob/main/poems_generation):
     * [generated_poems.json](https://github.com/polinadumbledore/poem_quality_evaluation/blob/main/poems_generation/generated_poems.json) – corpus of generated poems
-    * [generation_sources.txt](https://github.com/polinadumbledore/poem_quality_evaluation/blob/main/poems_generation/generation_sources.txt) – list of all sources used for generation with prompts
+    * [generation_sources.txt](https://github.com/polinadumbledore/poem_quality_evaluation/blob/main/poems_generation/generation_sources.txt) – list of all sources used for generation (with prompts)
     * [poems_from_pictures_generation.ipynb](https://github.com/polinadumbledore/poem_quality_evaluation/blob/main/poems_generation/poems_from_pictures_generation.ipynb) – code for generation from pictures
     * [poems_from_starters_generation.ipynb](https://github.com/polinadumbledore/poem_quality_evaluation/blob/main/poems_generation/poems_from_starters_generation.ipynb) – code for generation from starters
 * [all-scripts.ipynb](https://github.com/polinadumbledore/poem_quality_evaluation/blob/main/all-scripts.ipynb) – scripts for poem evaluation on all the parameters
