@@ -32,6 +32,7 @@ The system evaluates poems based on several parameters: rhythm, novelty, repetit
 The corpus is divided into two halves, each labeled independently by two individuals. Before resolving conflicts, Cronbach's alpha was measured:
 - Cronbach's alpha for the first pair of labelers: 0.9307134059623864
 - Cronbach's alpha for the second pair of labelers: 0.9966737810000899
+
 Conflicts were resolved by taking the majority vote, although consensus was largely achieved.
 
 ## Training the Model
