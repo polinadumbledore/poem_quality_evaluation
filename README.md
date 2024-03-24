@@ -78,5 +78,9 @@ Using our model, we evaluated different generative models. The score for each mo
 | gigachat | 2.000000 |
 | gpt-3.5 | 2.285714 |
 
+## Requirements
+
+`!pip install rouge russyl transformers`
+
 ## References
 [1] Manex Agirrezabal, Hugo Gonçalo Oliveira, Aitor Ormazabal. "Erato: Automatizing Poetry Evaluation." (2023)
