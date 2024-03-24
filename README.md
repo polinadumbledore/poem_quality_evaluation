@@ -3,6 +3,21 @@
 ## Main Idea
 The system evaluates poems based on several parameters: rhythm, novelty, repetition, meaningfulness, emotionality, and grammar. The project comprises several scripts: the first one counts repetition and novelty (counting novelty is only possible if a poem is part of a corpus; the script evaluates novelty by comparing the poem to others in the corpus), the second one evaluates rhythm, and the last one is a model trained on BERT to classify the poem based on three labels: meaningfulness, emotionality, and grammar.
 
+## File navigation
+* poems_generation
+    * generated_poems.json – corpus of generated poems
+    * generation_sources.txt – list of all sources used for generation with prompts
+    * poems_from_pictures_generation.ipynb – code for generation from pictures
+    *poems_from_starters_generation.ipynb – code for generation from starters
+* all-scripts.ipynb – scripts for poem evaluation on all the parameters
+* collecting_poems.ipynb – code for human poems parsing
+* comparing_models.ipynb – code for model quality assessment
+* novelty_and_repetition.ipynb – code for calculating novelty and repetition 
+* rhythm.ipynb – code for calculating rhythm
+* testing.ipynb – testing of accuracy and f1-score of the model
+* training-bert.ipynb – BERT training
+* visualisation.ipynb – code for building graphs to describe our data
+
 ## Process
 - **Collecting the Dataset (Real Poems + Generated Poems)**
   - Parsed over 1800 poems from [rustih.ru](https://rustih.ru/) and [tipoet.com](https://tipoet.com/).
